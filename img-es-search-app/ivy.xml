@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" 
+xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="rodaxsoft" module="img-es-search-app" status="integration"/>
+	<dependencies>
+	
+	    <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/rest -->
+        <dependency org="org.elasticsearch.client" name="rest" rev="5.3.3"/>
+	    
+		<dependency org="org.apache.commons" name="commons-lang3" rev="3.4+" />
+		
+		<!-- Logging -->
+		<dependency org="log4j" name="log4j" rev="1.2+" transitive="false"/>
+				
+		<!-- Exclusions -->
+		<exclude org="javax.servlet"/>
+		<exclude org="avalon-framework"/>
+		<exclude org="logkit" />
+		<exclude org="org.codehaus.groovy" />
+		<exclude org="xom" />
+		<exclude org="xml-resolver" />
+		<exclude module="commons-jxpath" />
+		<exclude module="commons-vfs2" />
+		<exclude module="commons-jexl" />
+		<exclude org="org.apache.geronimo.specs"/>
+		<exclude org ="junit"/>
+		<exclude org="oro"/>
+		<exclude module="javaee-api"/>
+		
+	</dependencies>
+</ivy-module>

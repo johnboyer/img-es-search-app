@@ -1,0 +1,1 @@
+ant -buildfile deploy.xml dist

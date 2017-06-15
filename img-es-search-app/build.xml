@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="img-es-search-app">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../../Applications/Eclipse.app/Contents/Eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <import file="deploy.xml"/>
+    <path id="Apache Tomcat v8.5 [Apache Tomcat v8.5].libraryclasspath">
+        <pathelement location="../../../Applications/tomcat-8.5/lib/annotations-api.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/catalina-ant.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/catalina-ha.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/catalina-storeconfig.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/catalina-tribes.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/catalina.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/ecj-4.5.1.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/el-api.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/jasper-el.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/jasper.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/jaspic-api.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/jsp-api.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/servlet-api.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-api.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-coyote.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-dbcp.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-i18n-es.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-i18n-fr.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-i18n-ja.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-jdbc.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-jni.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-util-scan.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-util.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/tomcat-websocket.jar"/>
+        <pathelement location="../../../Applications/tomcat-8.5/lib/websocket-api.jar"/>
+    </path>
+    <path id="Web App Libraries.libraryclasspath"/>
+    <path id="EAR Libraries.libraryclasspath"/>
+    <path id="Ivy.libraryclasspath">
+        <pathelement location="../../../.ivy2/cache/org.elasticsearch.client/rest/jars/rest-5.3.3.jar"/>
+        <pathelement location="../../../.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.2.jar"/>
+        <pathelement location="../../../.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.5.jar"/>
+        <pathelement location="../../../.ivy2/cache/org.apache.httpcomponents/httpasyncclient/jars/httpasyncclient-4.1.2.jar"/>
+        <pathelement location="../../../.ivy2/cache/org.apache.httpcomponents/httpcore-nio/jars/httpcore-nio-4.4.5.jar"/>
+        <pathelement location="../../../.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.10.jar"/>
+        <pathelement location="../../../.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.3.jar"/>
+        <pathelement location="../../../.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.4.jar"/>
+        <pathelement location="../../../.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar"/>
+    </path>
+    <path id="img-es-search-app.classpath">
+        <pathelement location="build/classes"/>
+        <path refid="Apache Tomcat v8.5 [Apache Tomcat v8.5].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="Ivy.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="build/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="build/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="img-es-search-app.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+</project>
